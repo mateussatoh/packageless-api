@@ -4,11 +4,11 @@ module.exports = [
     name: 'Mateus'
   },
   {
-    id: 2,
-    name: 'Diego'
-  },
-  {
-    id: 3,
-    name: 'Gabriel'
-  },
+     id: 3,
+     name: 'Gabriel'
+   },
+   {
+     id: 2,
+     name: 'Diego'
+   },
 ]
