@@ -1,5 +1,4 @@
 const UserController = require("./controllers/UserController");
-const ProductController = require("./controllers/ProductController");
 
 module.exports = [
    {
@@ -17,9 +16,5 @@ module.exports = [
       method: "POST",
       handler: UserController.createUser,
    },
-   {
-      endpoint: "/products",
-      method: "GET",
-      handler: ProductController.listProducts,
-   },
+
 ];
