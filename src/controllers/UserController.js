@@ -1,7 +1,7 @@
 const users = require("../mocks/users");
 
 module.exports = {
-   listUsers(request, response) {
+   getUsers(request, response) {
       const { order } = request.query;
       const sortedUsers = users.sort((userA, userB) => {
          if (order === "asc") {
@@ -11,6 +11,18 @@ module.exports = {
          } else return users;
       });
       response.writeHead(200, { "Content-type": "application/json" });
-      response.end(JSON.stringify(users));
+      response.end(JSON.stringify(sortedUsers));
+   },
+   getUsersById(request, response) {
+      const { id } = request.params;
+      const user = users.find(user => user.id === parseInt(id))
+      if(!user){     
+         response.writeHead(400, { "Content-type": "application/json" });
+         response.end(JSON.stringify({error: 'Invalid user id'}));
+      } else {
+
+         response.writeHead(200, { "Content-type": "application/json" });
+         response.end(JSON.stringify(user));
+      }
    },
 };
